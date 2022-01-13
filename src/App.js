@@ -1,7 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { data } from "./stays.js";
 
 function App() {
+  console.log(data);
   return (
     <div className="App">
       <header className="App-header">
