@@ -6,8 +6,8 @@ export const Hotel = () => {
     <div className="containerHotel">
       {data &&
         data.map((item, index) => (
-          <div className="containerHotel__item">
-            <img src={item.photo} alt="photo" />
+          <div className="containerHotel__item" key={index}>
+            <img src={item.photo} alt={item.title} />
             <div className="containerHotel__item__info">
               <div className="containerHotel__item__info__top">
                 <div className="containerHotel__item__info__top__left">
