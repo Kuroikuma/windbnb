@@ -1,20 +1,11 @@
 import "./hotel.css";
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import HotelsContext from "../../context/dataContext";
 
 import star from "../../../assets/star.png";
 export const Hotel = () => {
-  const { hotels, setHotels } = useContext(HotelsContext);
-  useEffect(() => {
-    const validationHotels = (element) => {
-      return element.country === "Finland" && element.city === "Helsinki";
-    };
-    const handleHotelSearch = () => {
-      const newHotels = hotels.filter(validationHotels);
-      setHotels(newHotels);
-    };
-    handleHotelSearch();
-  }, []);
+  const { hotels } = useContext(HotelsContext);
+
   return (
     <div className="containerHotel">
       {hotels &&
