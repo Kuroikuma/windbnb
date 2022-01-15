@@ -23,6 +23,7 @@ export const HeaderView = (props) => {
     setShowGuest,
     handleShowGuest,
     handleShowLocation,
+    handleHotelSearch,
   } = props;
   return (
     <>
@@ -63,6 +64,7 @@ export const HeaderView = (props) => {
           setChildren={setChildren}
           setAdults={setAdults}
           setGuest={setGuest}
+          handleHotelSearch={handleHotelSearch}
         />
       </Modal>
     </>

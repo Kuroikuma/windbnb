@@ -93,7 +93,7 @@
   align-items: flex-start;
 }
 .containerHotel__item__info__button p {
-  font-family: Montserrat;
+  font-family: sans-serif;
   font-style: normal;
   text-overflow: ellipsis;
   overflow: hidden;

@@ -15,6 +15,7 @@ export const ModalHeader = (props) => {
     setChildren,
     setAdults,
     setGuest,
+    handleHotelSearch,
   } = props;
   const handleShowLocation = () => {
     setShowGuest(false);
@@ -84,7 +85,10 @@ export const ModalHeader = (props) => {
             )}
           </div>
           <div className="containerModalHeader__top__item">
-            <button className="containerModalHeader__top__item__search">
+            <button
+              onClick={handleHotelSearch}
+              className="containerModalHeader__top__item__search"
+            >
               <img src={lupa} alt="lupa" />
               <p>Search</p>
             </button>

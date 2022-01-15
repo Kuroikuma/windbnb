@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { data } from "../../../assets/stays";
 import logo from "../../../assets/logo.svg";
 import lupa from "../../../assets/magnifying-glass.png";
+import HotelsContext from "../../context/dataContext";
 import { HeaderView } from "./header.jsx";
 import { useModal } from "../../hooks/useModal";
 import { Modal } from "../modal/modal";
 
 export const Header = () => {
+  const { setHotels } = useContext(HotelsContext);
   const locations = [
     "Helsinki, Finland",
-    "Turku,Finland",
+    "Turku, Finland",
     "Oulu, Finland",
     "Vaasa, Finland",
   ];
@@ -27,6 +30,26 @@ export const Header = () => {
   const handleShowLocation = () => {
     openModal();
     setShowLocation(true);
+  };
+
+  const validationHotels = (element) => {
+    const [city, country] = location.split(",");
+    const countrySeparate = country.slice(1, country.length);
+    if (guest) {
+      return (
+        element.country === countrySeparate &&
+        element.city === city &&
+        element.beds === guest
+      );
+    } else {
+      return element.country === countrySeparate && element.city === city;
+    }
+  };
+
+  const handleHotelSearch = () => {
+    const newHotels = data.filter(validationHotels);
+    setHotels(newHotels);
+    closeModal();
   };
 
   return (
@@ -52,6 +75,7 @@ export const Header = () => {
       setShowGuest={setShowGuest}
       handleShowGuest={handleShowGuest}
       handleShowLocation={handleShowLocation}
+      handleHotelSearch={handleHotelSearch}
     />
   );
 };

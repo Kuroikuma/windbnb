@@ -1,11 +1,14 @@
 import "./hotel.css";
-import { data } from "../../../assets/stays";
+import React, { useContext } from "react";
+import HotelsContext from "../../context/dataContext";
+
 import star from "../../../assets/star.png";
 export const Hotel = () => {
+  const { hotels } = useContext(HotelsContext);
   return (
     <div className="containerHotel">
-      {data &&
-        data.map((item, index) => (
+      {hotels &&
+        hotels.map((item, index) => (
           <div className="containerHotel__item" key={index}>
             <img src={item.photo} alt={item.title} />
             <div className="containerHotel__item__info">
